@@ -9,6 +9,19 @@
   </head>
   <h1>THANKS FOR ORDERING! IT WILL BE HERE SOON.</h1>
 
+<script>
+
+  function itemOrdered() {
+    var x,y,name,a,b,answer;
+    x=document.getElementById("order") ;
+    y=x.elements["item"].value;
+    document.getElementById("showr").innerHTML="The item you ordered is: "+y+"<br>";
+    
+    }
+</script>
+
+<p id="showr"></p>
+
   <div class="container">
     <form action="/">
       <input type="submit" value="Back to home">
