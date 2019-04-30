@@ -8,17 +8,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <h1>Ordering page</h1>
-  <div class="container">
-    <form action="/ordered.html" id="order">
+    <form id="order">
       <!-- <label for="usrname">Username</label>
       <input type="password" id="usrname" name="usrname"  pattern = "Noofies" title = "Invalid Username." required>
       
       <br/> -->
-  
-      <label for="item">Enter Item Name</label>
-      <input type="string" id="item" name="item" pattern="{1}" title="Incorrect Surname." required>
+      Item Name:
+      <!-- <label for="item">Enter Item Name</label> -->
+      <input name="item" type="text" size="20">
       <br>
 
       <!-- <input type="submit" value="Ok. Done Ordering!"> -->
     </form>
-  </div>
+  <button onclick="itemOrdered()">Done Ordering!</button>
+
+<script>
+
+  
+
+function itemOrdered() {
+  var x,y,name,a,b,answer;
+  x=document.getElementById("order") ;
+  y=x.elements["item"].value;
+  document.getElementById("demo").innerHTML="Hello "+y+"<br>";
+  document.getElementById("demo").innerHTML+=y + " is a very good tutor! <br>";
+
+}
+
+
+</script>
+
+<p id="demo"></p>

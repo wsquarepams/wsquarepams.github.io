@@ -1,0 +1,24 @@
+<form id="form1">
+    <p id="question"></p>
+    <input name="name" type="text" size="3"> 
+    <button type="button" onclick="outputname()">Check</button>
+</form>
+<script>
+    number1=Math.floor(Math.random()*10+1);
+    number2=Math.floor(Math.random()*10+1);
+    document.getElementById("question").innerHTML=number1+"+"+number2+"=";
+
+
+    function outputname() {
+    var x,y,name,a,b,answer;
+
+    x=document.getElementById("form1") ;
+    y=x.elements["name"].value;
+    if (y==number1+number2) {
+        document.getElementById("demo").innerHTML="Your answer is correct";
+    } else {
+        document.getElementById("demo").innerHTML="Your answer is wrong";
+    }
+    }
+</script>
+<p id="demo"></p>
