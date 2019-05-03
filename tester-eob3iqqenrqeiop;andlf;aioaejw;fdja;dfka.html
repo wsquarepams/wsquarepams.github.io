@@ -1,15 +1,16 @@
-<html><head></head><body>
+<html>
+    <head>Math Quiz</head><body>
         Click "Start quiz" to start the quiz!<br>
         You will be timed to see how long it takes you to finish! <br>
         Click check answer as soon as you are finished! <br>
         Press the TAB key to quickly scroll between input boxes. <p>
-        <button id = "Start" type="button" onclick="return disableMe()" onclick=>Start Quiz</button>
+        <button id = "Start" type="button" onclick="startQuiz()" onclick=>Start Quiz</button>
         </p><form id="form1">
         <p id="question"></p>
         
         </form>
         
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             var clicked = false;
             function disableMe() {
                 if (document.getElementById) {
@@ -27,13 +28,20 @@
                     return true;
                 }
             }
-        </script>
+        </script> -->
 
         <script>
         var number1=new Array();
         var number2=new Array();
         var timer=0;
         function startQuiz() {
+            var clicked = false;
+             if (document.getElementById("Start")) {
+                    if (!clicked) {
+                        document.getElementById("Start").value = "Started";
+                        clicked = true;
+                    }
+            }
             for (var i=1;i<=5;i++) {
             number1[i]=Math.floor(Math.random()*10+1);
             number2[i]=Math.floor(Math.random()*10+1);
@@ -70,4 +78,5 @@
         
         <p id="demo"></p>
         
-        </body></html>
+        </body>
+        </html>

@@ -16,6 +16,7 @@
     y=x.elements["name"].value;
     if (y==number1+number2) {
         document.getElementById("demo").innerHTML="Your answer is correct";
+        document.getElementById("demo").innerHTML+="<br> <button type=\"button\" onclick=\"location.reload()\">More Math!</button>";
     } else {
         document.getElementById("demo").innerHTML="Your answer is wrong";
     }
