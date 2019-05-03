@@ -14,9 +14,25 @@ That's why I made this page.
 <br>
 <br>
 <div class="container">
-  <form action="/stressChoosePage.html">
+  <form id="form1" action="/stressChoosePage.html">
     <label for="psw">Enter Website Creator Nickname for Verification :</label>
-    <input type="password" id="psw" name="psw" pattern="Willy" title="Invalid." required>
-    <input type="submit" value="I acctually understand the risk and I have teacher permission.">
+    <input type="password" id="psw" name="psw" required>
+    <button onclick="outputname()">Submit and Check</button>
   </form>
 </div>
+<script>
+function outputname() {
+    var x,y;
+
+    x=document.getElementById("form1") ;
+    y=x.elements["psw"].value;
+    if (y=="Willy") {
+      document.getElementById(invalidConfirm).innerHTML = "<button type=\"button\" onclick=\"stressChoosePage.reload()\">I understand the risk and I have teacher permission.</button>"
+    } else {
+        document.getElementById("invalidConfirm").innerHTML="Incorrect Creator Nickname";
+        document.getElementById("invalidConfirm").innerHTML+="<br><button type=\"button\" onclick=\"location.reload()\">Go Home</button>";
+        x.elements["psw"].value = "";
+    }
+    }
+</script>
+<p id="invalidConfirm"></p>

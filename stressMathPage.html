@@ -4,8 +4,8 @@
     <button type="button" onclick="outputname()">Check</button>
 </form>
 <script>
-    number1=Math.floor(Math.random()*10+1);
-    number2=Math.floor(Math.random()*10+1);
+    number1=Math.floor(Math.random()*100+1);
+    number2=Math.floor(Math.random()*100+1);
     document.getElementById("question").innerHTML=number1+"+"+number2+"=";
 
 
@@ -19,6 +19,7 @@
         document.getElementById("demo").innerHTML+="<br> <button type=\"button\" onclick=\"location.reload()\">More Math!</button>";
     } else {
         document.getElementById("demo").innerHTML="Your answer is wrong";
+        x.elements["name"].value = "";
     }
     }
 </script>
