@@ -27,6 +27,7 @@ function outputname() {
     x=document.getElementById("form1") ;
     y=x.elements["psw"].value;
     if (y=="Willy") {
+      window.alert("ARE YOU ACTUALLY SURE???");
       document.getElementById(invalidConfirm).innerHTML = "<button type=\"button\" onclick=\"stressChoosePage.reload()\">I understand the risk and I have teacher permission.</button>"
     } else {
         document.getElementById("invalidConfirm").innerHTML="Incorrect Creator Nickname";
