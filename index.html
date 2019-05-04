@@ -102,13 +102,20 @@
 </div>
 
 <!-- <IMG SRC="webpage.gif"> -->
-<h6>Suggestions?</h6>
+<h3 style="color:#1d2c79">Suggestions?</h3>
 <button id = "submit" onclick="showEmailAddress()">Email</button>
 <script>
-
+  var buttonShowing = false
     function showEmailAddress() {
-      document.getElementById("showr").innerHTML="<br>  <a href=\"mailto:wsquarepa@gmail.com?subject=Suggestions\">Email Willy!</a>";
-
+      if (buttonShowing==false){
+        buttonShowing=true
+        document.getElementById("showr").innerHTML="<a href=\"mailto:wsquarepa@gmail.com?subject=Suggestions\">Email Willy!</a>";
+        document.getElementById("submit").innerText = "Hide"
+      } else {
+        buttonShowing=false
+        document.getElementById("showr").innerHTML="{Email Appears Here}";
+        document.getElementById("submit").innerText="Email"
+      }
 }
 </script>
-<p id="showr"></p>
+<p id="showr">{Email Appears Here}</p>
