@@ -19,14 +19,17 @@
 <button onclick="del()">Delete All of it!</button> -->
 
 <div class="container">
-    <form>
+    <!-- <form> -->
         <input type="text" id="str" name="str" pattern="{10000000000000)" title="..." required>
         <button onclick="del()">Delete All of it!</button>
-    </form>
+    <!-- </form> -->
   </div> 
 
 <script>
 function del() {
+  let chars = document.getElementById("str").value
   document.getElementById("str").value = "";
+  document.getElementById("lengthtest").value = string(chars.length)
 }
 </script>
+<p id = "lengthtest">0</p>
