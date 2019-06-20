@@ -80,6 +80,29 @@
 <br>
 <br>
 <br>
+<button onclick= show()>Click me again and again!!</button>
+<p id='Show'></p>
+<script>
+  //max size is 7
+  var size = 1
+  var firstClick = true
+  function show() {
+    if (firstClick) {
+      firstClick = false
+      document.getElementById("Show").innerHTML = "<font size=\"" + size.toString() +"\">...</font>"
+    } else {
+      if (size >= 7) {
+        firstClick = true
+        size = 1
+        document.getElementById("Show").innerHTML = ""
+      } else {
+        firstClick = false
+        size += 1
+        document.getElementById("Show").innerHTML = "<font size=\"" + size.toString() +"\">...</font>"
+      }
+    }
+  }
+</script>
 <br>
 <br>
 </form>
