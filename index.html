@@ -79,32 +79,6 @@
 </div> -->
 <br>
 <br>
-<br>
-<button onclick= show()>Click me again and again!!</button>
-<p id='Show'></p>
-<script>
-  //max size is 7
-  var size = 1
-  var firstClick = true
-  function show() {
-    if (firstClick) {
-      firstClick = false
-      document.getElementById("Show").innerHTML = "<font size=\"" + size.toString() +"\">...</font>"
-    } else {
-      if (size >= 7) {
-        firstClick = true
-        size = 1
-        document.getElementById("Show").innerHTML = ""
-      } else {
-        firstClick = false
-        size += 1
-        document.getElementById("Show").innerHTML = "<font size=\"" + size.toString() +"\">...</font>"
-      }
-    }
-  }
-</script>
-<br>
-<br>
 </form>
 <div class="container">
   <form action="/copyright.html">
@@ -121,6 +95,8 @@
 </div>
 
 </p>
+<br>
+<button onclick="location.href = 'www.wsquarepams.github.io/discordBotAdd.html';">Add to server</button>
 <br>
 
 <h3>When you are stressed, click "I am stressed now!"</h3>
@@ -150,6 +126,30 @@
 }
 </script>
 <p id="showr">{Email Appears Here}</p>
+
+<button onclick= show()>Click me again and again!!</button>
+<p id='Show'></p>
+<script>
+  //max size is 7
+  var size = 1
+  var firstClick = true
+  function show() {
+    if (firstClick) {
+      firstClick = false
+      document.getElementById("Show").innerHTML = "<font size=\"" + size.toString() +"\">...</font>"
+    } else {
+      if (size >= 7) {
+        firstClick = true
+        size = 1
+        document.getElementById("Show").innerHTML = ""
+      } else {
+        firstClick = false
+        size += 1
+        document.getElementById("Show").innerHTML = "<font size=\"" + size.toString() +"\">...</font>"
+      }
+    }
+  }
+</script>
 
 <script type="text/javascript"  charset="utf-8">
   // Place this code snippet near the footer of your page before the close of the /body tag
