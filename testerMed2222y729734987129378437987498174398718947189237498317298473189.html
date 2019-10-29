@@ -34,21 +34,25 @@
         var number1=new Array();
         var number2=new Array();
         var timer=0;
+        var started = false
         function startQuiz() {
-            var clicked = false;
-             if (document.getElementById("Start")) {
-                    if (!clicked) {
-                        document.getElementById("Start").value = "Started";
-                        clicked = true;
-                    }
+            if (!started) {
+                var clicked = false;
+                var started = true
+                if (document.getElementById("Start")) {
+                        if (!clicked) {
+                            document.getElementById("Start").value = "Started";
+                            clicked = true;
+                        }
+                }
+                for (var i=1;i<=5;i++) {
+                number1[i]=Math.floor(Math.random()*10+1);
+                number2[i]=Math.floor(Math.random()*10+1);
+                document.getElementById("question").innerHTML+="Question "+i+": "+number1[i]+"+"+number2[i]+"= <input name=\"name"+i+"\" type=\"text\" size=\"3\">  <br>";
+                }
+                document.getElementById("question").innerHTML+="<button type=\"button\" onclick=\"checkAnswers()\">Check answer</button>"
+                setInterval(function(){timer=timer+1;},1000);
             }
-            for (var i=1;i<=5;i++) {
-            number1[i]=Math.floor(Math.random()*10+1);
-            number2[i]=Math.floor(Math.random()*10+1);
-            document.getElementById("question").innerHTML+="Question "+i+": "+number1[i]+"+"+number2[i]+"= <input name=\"name"+i+"\" type=\"text\" size=\"3\">  <br>";
-            }
-            document.getElementById("question").innerHTML+="<button type=\"button\" onclick=\"checkAnswers()\">Check answer</button>"
-            setInterval(function(){timer=timer+1;},1000);
         }
         
         
