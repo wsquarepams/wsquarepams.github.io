@@ -9,7 +9,7 @@
       <br/> -->
       Item Name:
       <!-- <label for="item">Enter Item Name</label> -->
-      <input name="item" type="text" size="20">
+      <input id="item" name="item" type="text" size="20">
       <br>
 
       <!-- <input type="submit" value="Ok. Done Ordering!"> -->
@@ -19,6 +19,7 @@
 <script>
   function orderItem() {
     localStorage.setItem("order", document.getElementById("item").value)
+    window.location.href = "ordered.html"
   }
 </script>
 
