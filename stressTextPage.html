@@ -32,15 +32,16 @@
     localStorage.setItem("textTyped", document.getElementById("typedText").value)
   }
   function reset() {
-    localStorage.setItem('textTyped', '')
+    document.getElementById("typedText").value = ""
+    unload()
     load()
   }
 </script>
 
 <body onload = "load()" onunload = "unload()">
-  <h3>Below, you type stuff. Under that, you see how many characters you typed. Don't worry. Once you type 20 characters, you start to see it. Happy Typing!</h3>
+  <h3>Below, you type stuff. Under that, you see how many characters you typed. Don't worry. Once you type 5 characters, you start to see it. Happy Typing!</h3>
   <input id="typedText">
-  <button onclick="remove()">Clear text field</button> <button onclick="reset()" style="color: red">Clear storage</button>
+  <button onclick="remove()">Clear text field</button> <button onclick="reset()" style="color: red">Clear storage</button> <h4 id="smallFeed" hidden>0 Characters</h4>
   <p id="lengthTest" style="font-size:0px">0</p>
 </body>
 
@@ -48,7 +49,15 @@
   function count() {
     var chars = document.getElementById("typedText").value.length
     var lengthShow = document.getElementById("lengthTest")
-    lengthShow.innerHTML = chars
+    var liveFeed = document.getElementById("smallFeed")
+    lengthShow.innerHTML = chars + " characters"
+    if (chars > 3000) {
+      liveFeed.hidden = false
+      liveFeed.innerHTML = chars + " characters"
+      setInterval(backgroundCheck, 1)
+    } else {
+      liveFeed.hidden = true
+    }
     lengthShow.style = "font-size:" + (chars/10) + "px;"
     if (chars % 10 == 0) {
       lengthShow.style = "font-size:" + (chars/10) + "px; color:red;"
@@ -56,12 +65,16 @@
         lengthShow.style = "font-size:" + (chars/10) + "px; color:green;"
         if(chars % 1000 == 0) {
           lengthShow.style = "font-size:" + (chars/10) + "px; color:blue;"
+          liveFeed.style = "color:blue;"
           if (chars % 10000 == 0) {
             lengthShow.style = "font-size:" + (chars/10) + "px; color:yellow;"
+            liveFeed.style = "color:yellow;"
             if (chars % 100000 == 0) {
               lengthShow.style = "font-size:" + (chars/10) + "px; color:purple;"
+              liveFeed.style = "color:purple;"
               if (chars % 1000000 == 0) {
                 lengthShow.style = "font-size:" + (chars/10) + "px; color:fuchsia;"
+                liveFeed.style = "color:fuchsia;"
               }
             }
           }
@@ -74,5 +87,12 @@
     count()
   }
 
+  function backgroundCheck() {
+    if (document.getElementById("typedText").value.length != parseInt(document.getElementById("lengthTest").innerHTML.slice(0, -11))) {
+      count()
+    }
+  }
+
   document.getElementById("typedText").addEventListener("keydown", count)
+  
 </script>
