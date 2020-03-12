@@ -1,17 +1,5 @@
 <head>
     <title>Math Consession Menu</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-           google_ad_client: "ca-pub-7535472876481853",
-           enable_page_level_ads: true
-      });
- </script>
   </head>
   <h1>Ordering page</h1>
     <form id="order">
@@ -26,22 +14,12 @@
 
       <!-- <input type="submit" value="Ok. Done Ordering!"> -->
     </form>
-  <button onclick="itemOrdered()">Done Ordering!</button>
+  <button onclick="orderItem()">Done Ordering!</button>
 
 <script>
-
-  
-
-function itemOrdered() {
-  var x,y,name,a,b,answer;
-  x=document.getElementById("order") ;
-  y=x.elements["item"].value;
-  document.getElementById("demo").innerHTML="Hello "+y+"<br>";
-  document.getElementById("demo").innerHTML+=y + " is a very good tutor! <br>";
-
-}
-
-
+  function orderItem() {
+    localStorage.setItem("order", document.getElementById("item").value)
+  }
 </script>
 
 <p id="demo"></p>
