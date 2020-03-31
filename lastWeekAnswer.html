@@ -1,0 +1,59 @@
+<head>
+    <title>Weekly math problem</title>
+    <div id="firebase-app">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyACEuS2m4oLG55gQuxqYbwraucq47Iz-LY",
+                authDomain: "wsquarepams.firebaseapp.com",
+                databaseURL: "https://wsquarepams.firebaseio.com",
+                projectId: "wsquarepams",
+                storageBucket: "wsquarepams.appspot.com",
+                messagingSenderId: "61133214796",
+                appId: "1:61133214796:web:bea87954f6231e0a2d50e9",
+                measurementId: "G-8M5V3K0B8H"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            var database = firebase.database()
+
+        </script>
+    </div>
+    <style>
+        button {
+            border-style: solid;
+            border-color: black;
+            background-color: white;
+        }
+
+        button:hover {
+            border-style: solid;
+            border-color: black;
+            background-color: gray;
+            cursor:pointer
+        }
+    </style>
+</head>
+<body>
+    <h1>Answer for last week's question:</h1>
+    <p id="mathProblemDisplay" style="font-size: 25px;">Loading...</p>
+</body>
+<script id="script">
+    function read() {
+        return firebase.database().ref('/answer').on('value', function(snapshot) {
+            var question = (snapshot.val()) || 'No answer in database.';
+            document.getElementById("mathProblemDisplay").innerHTML = question
+        });
+    }
+
+    read()
+    document.getElementById("script").remove()
+    document.getElementById("firebase-app").remove()
+</script>
