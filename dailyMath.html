@@ -68,7 +68,7 @@
         });
     }
     function read() {
-        return firebase.database().ref('/question').on('value', function(snapshot) {
+        return firebase.database().ref('/mathQuestion/question').on('value', function(snapshot) {
             var question = (snapshot.val()) || 'There was no quesiton in the database.';
             document.getElementById("mathProblemDisplay").innerHTML = question
         });

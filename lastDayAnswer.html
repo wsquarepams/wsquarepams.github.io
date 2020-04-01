@@ -47,12 +47,11 @@
 </body>
 <script id="script">
     function read() {
-        return firebase.database().ref('/answer').on('value', function(snapshot) {
+        return firebase.database().ref('/mathQuestionAnswer/answer').on('value', function(snapshot) {
             var question = (snapshot.val()) || 'No answer in database.';
             document.getElementById("mathProblemDisplay").innerHTML = question
         });
     }
-
     read()
     document.getElementById("script").remove()
     document.getElementById("firebase-app").remove()
