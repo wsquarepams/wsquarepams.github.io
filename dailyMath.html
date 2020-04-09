@@ -45,18 +45,19 @@
     <h1>Today's math problem: </h1>
     <p id="mathProblemDisplay" style="font-size: 25px;">Loading...</p>
     <label for="answer">Your answer: </label><input id="answer" type="text"> <br>
-    <label for="name">Your nickname (Willy must know it though): </label> <input id="name" type="text"> <br>
+    <label for="name">Your email: </label> <input id="name" type="email"> <br>
     <button onclick="submit()">Submit!</button> <br>
 </body>
 <script id="script">
     var currentId = 0
-    function write(answer, name) {
+    function write(answer, email) {
         firebase.database().ref('userAnswers/' + currentId).set({
             answer: answer,
-            name: name
+            email: email
         }, function (error) {
             if (error) {
-                // The write failed...
+                document.body.innerHTML = `Something went wrong. Try reloading the page <br>
+                <button onclick="window.location.reload()">Reload Page</button>`
             } else {
                 // Data saved successfully!
                 localStorage.setItem("sender", document.getElementById("name").value)
