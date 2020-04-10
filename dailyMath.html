@@ -98,8 +98,9 @@
         if (answer == "" || name == "") {
             alert("Please fill in all fields.")
         } else {
-            if (validateEmail(name))
-            write(answer, name)
+            if (validateEmail(name)) {
+                write(answer, name)
+            }
         }
     }
 
