@@ -66,8 +66,12 @@
             email: email
         }, function (error) {
             if (error) {
-                document.body.innerHTML = `Something went wrong. Try reloading the page <br>
-                <button onclick="window.location.reload()">Reload Page</button>`
+                if (error == "Error: PERMISSION_DENIED: Permission denied") {
+                    document.body.innerHTML = "Error: PERMISSION_DENIED: The owner turned off write permissions."
+                } else {
+                    document.body.innerHTML = error
+                }
+                
             } else {
                 // Data saved successfully!
                 localStorage.setItem("sender", document.getElementById("name").value)
