@@ -1,23 +1,166 @@
-<!-- <b> Hello There! </b> -->
 <head>
-  <title>wsquare's Site!</title>
-  <style>
-    .disabled {
-        opacity: 0.2;
-        cursor: not-allowed;
-    }
-  </style>
+    <title>Blubbadoo</title>
+    <style>
+        body {
+            background-color: #cccccc;
+        }
+
+        a {
+            color: blue
+        }
+
+        a:hover {
+            color: red
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: rgb(128, 128, 128);
+            color: white;
+        }
+
+        .topnav a.active:hover {
+            background-color: rgb(163, 162, 162);
+            color: white;
+        }
+
+        .topnav a.rightAlign {
+            float: right;
+        }
+
+        .imgButton {
+            border-style: double;
+        }
+
+        .imgButton:hover {
+            cursor: pointer;
+            border-style: solid;
+        }
+    </style>
+    <script>
+        function redirect() {
+            open('https://discordapp.com/oauth2/authorize?&client_id=596715111511490560&scope=bot&permissions=8')
+        }
+    </script>
 </head>
-<body>
-  <h1>Welcome to Willy's site!</h1>
-  <h2>To start, keep reading.</h2>
-  <br>
-  <h4>To see a chinese Immigration video, click the button below.</h4>
-  <button onclick="window.location.href = 'chineseImmigration.html'">See Chinese Immigration Video</button> <br>
-  <h4>Download discord bots below.</h4>
-  <button onclick="window.location.href = 'discordBotAdd.html'">Add discord bots</button>
-  <h4>Fun page below</h4>
-  <button onclick="window.location.href = 'stressWarningPage.html'">Go to fun page</button>
-  <h4>Daily math question</h4>
-  <button onclick="window.location.href = 'dailyMath.html'">See the Daily Math question</button>
-</body>
+<div class="topnav">
+    <a id="HOME" class="active" onclick="switchScope(this)">Home</a>
+    <a id="COMMANDS" onclick="switchScope(this)">Commands</a>
+    <a id="CONTACT" onclick="switchScope(this)">Contact</a>
+    <a id="ABOUT" onclick="switchScope(this)">About</a>
+    <a class="rightAlign" onclick="redirect()">Add to server</a>
+</div>
+<div id="home">
+    <center>
+        <h1>Blubbadoo, the discord bot.</h1>
+        <img class="imgButton" onclick="redirect()" src="discord_join_blurple.png">
+        <p style="font-size: 16px;">A multipurpose bot for your server.</p>
+    </center>
+</div>
+<div id="commands" hidden>
+    <p>
+        <h3>Commands: (ℹ️ - &lt;...&gt; means required and [...] means optional field.)</h3> <br>
+        <b>MODERATION COMMANDS:</b> <br> <br>
+            ==ban &lt;user&gt; &lt;reason&gt; - Ban people <br>
+            ==kick &lt;user&gt; &lt;reason&gt; - Kick people <br>
+            ==warn &lt;user&gt; &lt;reason&gt; - Warn people <br>
+            ==warnings [user] - See your or [user]'s warnings <br>
+            ==clearWarnings &lt;user&gt; - Clear the user's warnings (Does not work) <br>
+            ==perms &lt;user&gt; - See perms of that user (Note: USE_VAD = Use Voice Activity) <br>
+            ==purge &lt;number of messages to purge&gt; - Purge channels. You can purge a maximum of 2 week's worth or 100 messages. <br>
+            ==mute &lt;member&gt; - Mute a member. <br>
+            ==unmute &lt;member&gt; - Unmute a member. <br>
+            ==suggest &lt;suggestion&gt; - Post a suggestion in the channel you sent this in. <br>
+            ==role &lt;add | remove&gt; [user] &lt;role name&gt; - Add or remove the role from you or [user]. Do not use "@" when typing the role. <br> <br>
+        <b>MONEY COMMANDS:</b> <br> <br>
+            ==money | bal | balance - Check your balance. <br>
+            ==dep|deposit &lt;all | Number&gt; - Deposit all or [Number] into your bank. <br>
+            ==withdraw &lt;all | Number&gt; - Withdraw all or [Number] from your bank. <br>
+            ==daily - Get your daily money. Cooldown: \`1d\` <br>
+            ==work - Work to get money. Cooldown: \`1h\` <br>
+            ==shop - View the shop. <br>
+            ==buy &lt;itemName - Case sensitive&gt; - Buy the item. itemName is case sensitive. <br>
+            ==hunt - Hunt for cash. 75% success rate. Requires a knife. <br>
+            ==rps &lt;bet&gt; - Play "ROCK PAPER SCISSORS" with the bot. <br>
+            ==math - Do a math question. $100 if correct, -$100 if wrong. <br>
+            ==coin &lt;heads | tails&gt; &lt;bet&gt; - Flip a coin and win your bet. Chance depends on your bet and total money. Requires a coin. Cooldown: \`30s\` <br>
+            ==rob &lt;user&gt; - Rob &lt;user&gt;. 20% success rate, earn 75% of their money, otherwise -50% of yours to them. <br>
+    </p>
+</div>
+<div id="contact" hidden>
+    <center>
+        <h1>Contact</h1>
+        <p style="font-size: 20px">
+            To contact me, you can <a href="mailto:wsquarepa@gmail.com">send mail</a> to me, or join my <a href="https://discord.gg/AMjaJxP">Discord Server</a>
+        </p>
+    </center>
+</div>
+<div id="about" hidden>
+
+</div>
+<script>
+
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
+    }
+
+    function switchScope(a) {
+        var home = document.getElementById("home")
+        var commands = document.getElementById("commands")
+        var contact = document.getElementById("contact")
+        var about = document.getElementById("about")
+        var chosen = a.innerHTML.toLowerCase()
+        document.getElementsByClassName("active")[0].className = ""
+        if (chosen == "home") {
+            home.hidden = false
+            commands.hidden = true
+            contact.hidden = true
+            about.hidden = true
+        } else if (chosen == "commands") {
+            home.hidden = true
+            commands.hidden = false
+            contact.hidden = true
+            about.hidden = true
+        } else if (chosen == "contact") {
+            home.hidden = true
+            commands.hidden = true
+            contact.hidden = false
+            about.hidden = true
+        } else if (chosen == "about") {
+            home.hidden = true
+            commands.hidden = true
+            contact.hidden = true
+            about.hidden = false
+        }
+        a.className = "active"
+    }
+
+    var urlVars = getUrlVars()
+    console.log(urlVars)
+    if (Object.keys(urlVars) != null) {
+        var a = document.getElementById(urlVars["location"].toUpperCase())
+        switchScope(a)
+    }
+</script>
